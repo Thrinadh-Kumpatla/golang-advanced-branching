@@ -51,7 +51,7 @@ type feedbackResult struct{
 var vehicleResult map[string]feedbackResult
 
 var inventory[]vehicle 
-
+type rating float32
 const (
 	extraPositive rating = 1.2
 	positive      rating = 0.6
@@ -112,7 +112,7 @@ func generateRating (){
 		for _,msg := range v.Feedback{
 			if text := strings.Split(msg, " ");len(text)>=5 {
 				vehRating = 5.0
-				vehRating.feedbackTotal++
+				vehResult.feedbackTotal++
 				for _,word := range text {
 					switch s:= strings.Trim(strings.ToLower(word), " ,.,!,?,\t,\n,\r"); s{
 					case "pleasure", "impressed", "wonderful", "fantastic", "splendid":
